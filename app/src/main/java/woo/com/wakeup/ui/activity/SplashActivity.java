@@ -1,6 +1,8 @@
 package woo.com.wakeup.ui.activity;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import woo.com.wakeup.R;
 import woo.com.wakeup.ui.activity.component.DaggerSplashComponent;
@@ -31,6 +33,8 @@ public class SplashActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
         setContentView(R.layout.activity_splash);
     }
 

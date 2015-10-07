@@ -1,5 +1,7 @@
 package woo.com.wakeup;
 
+import android.app.Application;
+
 import dagger.Module;
 
 /**
@@ -11,4 +13,9 @@ import dagger.Module;
  */
 @Module
 public class AppModule {
+    private Application mApplication;
+
+    public AppModule(Application mApplication) {
+        this.mApplication = mApplication;
+    }
 }

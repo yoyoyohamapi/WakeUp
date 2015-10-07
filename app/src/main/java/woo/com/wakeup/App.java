@@ -30,7 +30,7 @@ public class App extends Application {
 
         // 构建程序上下文时，需要先初始化AppComponent, 才能注入依赖
         mAppComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule())
+                .appModule(new AppModule(this))
                 .build();
 
         this.injectDependencies();

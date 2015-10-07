@@ -1,6 +1,7 @@
 package woo.com.wakeup.ui.activity;
 
-import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import woo.com.wakeup.App;
 import woo.com.wakeup.AppComponent;
@@ -13,24 +14,22 @@ import woo.com.wakeup.ui.activity.module.ActivityModule;
  * Time: 9:49
  * Created by: Wooxxx
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends FragmentActivity {
 
-    /**
-     * 获得AppComponent
-     *
-     * @return AppComponent
-     */
     protected AppComponent getAppComponent() {
         return App.get(this).getAppComponent();
     }
 
-    /**
-     * 初始化当前Activity所需Component
-     */
-    protected abstract void setupActivityComponent();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setupActivityComponent();
+    }
 
+    protected abstract void setupActivityComponent();
 
     protected ActivityModule getActivityModule() {
         return new ActivityModule(this);
     }
+
 }

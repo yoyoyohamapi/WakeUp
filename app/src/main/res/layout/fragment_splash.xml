@@ -12,13 +12,13 @@
             android:id="@+id/ivBkg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/splash_bkg" />
+            android:scaleType="fitXY" />
         <!-- 标题 -->
         <ImageView
             android:id="@+id/ivTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/splash_title"
+            android:scaleType="fitXY"
             android:visibility="gone" />
     </FrameLayout>
 </LinearLayout>

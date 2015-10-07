@@ -1,9 +1,9 @@
 package woo.com.wakeup.ui.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,22 +13,26 @@ import com.easyandroidanimations.library.Animation;
 import com.easyandroidanimations.library.AnimationListener;
 import com.easyandroidanimations.library.FadeInAnimation;
 
+import java.util.Calendar;
+
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import woo.com.wakeup.R;
+import woo.com.wakeup.ui.activity.component.SplashComponent;
 import woo.com.wakeup.ui.presenter.SplashPresenter;
+import woo.com.wakeup.utils.DateUtils;
 
 /**
  * SplashFragment
- * Desc:
+ * Desc: 启动页Fragment
  * Date: 2015/10/6
  * Time: 9:36
  * Created by: Wooxxx
  */
-public class SplashFragment extends Fragment
-        implements SplashPresenter.view {
+public class SplashFragment extends BaseFragment
+        implements SplashPresenter.View {
 
     @Inject
     SplashPresenter mPresenter;
@@ -40,9 +44,17 @@ public class SplashFragment extends Fragment
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_splash, container, true);
+        View view = inflater.inflate(R.layout.fragment_splash, container, false);
         ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    protected void initialize() {
+        // 初始化时注入依赖
+        this.getComponent(SplashComponent.class).inject(this);
+        mPresenter.setView(this);
+        mPresenter.initialize();
     }
 
     @Override
@@ -52,7 +64,30 @@ public class SplashFragment extends Fragment
         this.titleFadeIn();
         // 延迟执行
         this.deffer();
+    }
 
+    @Override
+    public void setSeason() {
+        int season = DateUtils.getSeason(Calendar.getInstance());
+        Log.d("Season", "setting");
+        switch (season) {
+            case DateUtils.SEASON_SPRING:
+                mIvBkg.setImageResource(R.drawable.splash_spring);
+                mIvTitle.setImageResource(R.drawable.splash_spring_title);
+                break;
+            case DateUtils.SEASON_SUMMER:
+                mIvBkg.setImageResource(R.drawable.splash_summer);
+                mIvTitle.setImageResource(R.drawable.splash_summer_title);
+                break;
+            case DateUtils.SEASON_AUTUM:
+                mIvBkg.setImageResource(R.drawable.splash_autum);
+                mIvTitle.setImageResource(R.drawable.splash_autum_title);
+                break;
+            case DateUtils.SEASON_WINTER:
+                mIvBkg.setImageResource(R.drawable.splash_winter);
+                mIvTitle.setImageResource(R.drawable.splash_winter_title);
+                break;
+        }
     }
 
     @Override

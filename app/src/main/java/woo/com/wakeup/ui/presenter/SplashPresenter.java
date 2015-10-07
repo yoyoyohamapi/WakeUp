@@ -1,6 +1,5 @@
 package woo.com.wakeup.ui.presenter;
 
-import android.view.View;
 
 /**
  * SplashPresenter
@@ -13,9 +12,14 @@ public class SplashPresenter implements Presenter {
 
     private View mView;
 
+    public void setView(View view) {
+        this.mView = view;
+    }
+
     @Override
     public void initialize() {
-
+        // 初始化时设置季节
+        this.mView.setSeason();
     }
 
     @Override
@@ -28,7 +32,9 @@ public class SplashPresenter implements Presenter {
 
     }
 
-    public interface view {
+    public interface View {
+        // 设置季节
+        void setSeason();
         // 标题文字淡入
         void titleFadeIn();
 
