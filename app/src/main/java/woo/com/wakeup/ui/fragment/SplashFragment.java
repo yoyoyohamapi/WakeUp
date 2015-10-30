@@ -3,7 +3,6 @@ package woo.com.wakeup.ui.fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +19,11 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import woo.com.wakeup.R;
+import woo.com.wakeup.ui.activity.MainActivity;
 import woo.com.wakeup.ui.activity.component.SplashComponent;
 import woo.com.wakeup.ui.presenter.SplashPresenter;
 import woo.com.wakeup.utils.DateUtils;
+import woo.com.wakeup.utils.IntentUtils;
 
 /**
  * SplashFragment
@@ -40,6 +41,8 @@ public class SplashFragment extends BaseFragment
     ImageView mIvBkg;
     @Bind(R.id.ivTitle)
     ImageView mIvTitle;
+
+    private static final int TITLE_FADE = 2000;
 
     @Nullable
     @Override
@@ -62,14 +65,11 @@ public class SplashFragment extends BaseFragment
         super.onViewCreated(view, savedInstanceState);
         // 标题淡入
         this.titleFadeIn();
-        // 延迟执行
-        this.deffer();
     }
 
     @Override
     public void setSeason() {
         int season = DateUtils.getSeason(Calendar.getInstance());
-        Log.d("Season", "setting");
         switch (season) {
             case DateUtils.SEASON_SPRING:
                 mIvBkg.setImageResource(R.drawable.splash_spring);
@@ -79,7 +79,7 @@ public class SplashFragment extends BaseFragment
                 mIvBkg.setImageResource(R.drawable.splash_summer);
                 mIvTitle.setImageResource(R.drawable.splash_summer_title);
                 break;
-            case DateUtils.SEASON_AUTUM:
+            case DateUtils.SEASON_AUTUMN:
                 mIvBkg.setImageResource(R.drawable.splash_autum);
                 mIvTitle.setImageResource(R.drawable.splash_autum_title);
                 break;
@@ -96,9 +96,8 @@ public class SplashFragment extends BaseFragment
         new Handler().postDelayed(new Runnable() {
 
             public void run() {
-
                 new FadeInAnimation(mIvTitle)
-                        .setDuration(2000)
+                        .setDuration(TITLE_FADE)
                         .setListener(new AnimationListener() {
                             @Override
                             public void onAnimationEnd(Animation animation) {
@@ -115,7 +114,8 @@ public class SplashFragment extends BaseFragment
 
     @Override
     public void deffer() {
-
+        // 跳转到MainActivity
+        IntentUtils.switchTo(getActivity(), MainActivity.class);
     }
 
     @Override

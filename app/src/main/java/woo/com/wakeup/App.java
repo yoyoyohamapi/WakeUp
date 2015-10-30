@@ -1,7 +1,9 @@
 package woo.com.wakeup;
 
-import android.app.Application;
 import android.content.Context;
+
+import com.orm.SugarApp;
+
 
 /**
  * App
@@ -10,7 +12,7 @@ import android.content.Context;
  * Time: 9:48
  * Created by: Wooxxx
  */
-public class App extends Application {
+public class App extends SugarApp {
 
     private AppComponent mAppComponent;
 
@@ -34,6 +36,8 @@ public class App extends Application {
                 .build();
 
         this.injectDependencies();
+
+
     }
 
     /**

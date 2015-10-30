@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".ui.activity.NewActivity">
+    <!-- 日期 -->
+    <woo.com.wakeup.ui.widget.TextView
+        android:id="@+id/tvRecordDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/abc_list_item_padding_horizontal_material"
+        android:gravity="center"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:text="2015/10/20 10:10" />
+    <!-- 饮品 -->
+    <woo.com.wakeup.ui.widget.TextView
+        android:id="@+id/tvRecordDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/abc_list_item_padding_horizontal_material"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:text="茶" />
+    <!-- 活动 -->
+    <woo.com.wakeup.ui.widget.TextView
+        android:id="@+id/tvRecordActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/abc_list_item_padding_horizontal_material"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:text="饿死鬼" />
+</LinearLayout>

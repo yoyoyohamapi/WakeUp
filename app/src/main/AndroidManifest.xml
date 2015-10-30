@@ -2,20 +2,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="woo.com.wakeup">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:supportsRtl="true"
-        tools:replace="android:icon"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.SplashActivity">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:theme">
+
+        <!-- sugar -->
+        <meta-data
+            android:name="DATABASE"
+            android:value="wakeup.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="woo.com" />
+
+        <activity android:name=".ui.activity.NewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.activity.MainActivity" />
     </application>
 
 </manifest>
