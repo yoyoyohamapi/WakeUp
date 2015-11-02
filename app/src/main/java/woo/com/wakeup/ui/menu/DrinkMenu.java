@@ -22,7 +22,7 @@ public final class DrinkMenu {
         DrinkItem water = new DrinkItem();
         water.setImage(R.drawable.drink_water);
         water.setImageUnselected(R.drawable.drink_water_unselected);
-        water.setDesc("");
+        water.setDesc("这是清水");
         water.setId(RecordDrink.WATER);
 
         items.add(water);
@@ -31,7 +31,7 @@ public final class DrinkMenu {
         DrinkItem tea = new DrinkItem();
         tea.setImage(R.drawable.drink_tea);
         tea.setImageUnselected(R.drawable.drink_tea_unselected);
-        tea.setDesc("");
+        tea.setDesc("这是差");
         tea.setId(RecordDrink.TEA);
 
         items.add(tea);
@@ -40,7 +40,7 @@ public final class DrinkMenu {
         DrinkItem coffee = new DrinkItem();
         coffee.setImage(R.drawable.drink_coffee);
         coffee.setImageUnselected(R.drawable.drink_coffee_unselected);
-        coffee.setDesc("");
+        coffee.setDesc("这是咖啡");
         coffee.setId(RecordDrink.COFFEE);
 
         items.add(coffee);

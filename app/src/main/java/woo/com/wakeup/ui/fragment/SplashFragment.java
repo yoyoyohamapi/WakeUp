@@ -70,24 +70,24 @@ public class SplashFragment extends BaseFragment
     @Override
     public void setSeason() {
         int season = DateUtils.getSeason(Calendar.getInstance());
-        switch (season) {
-            case DateUtils.SEASON_SPRING:
-                mIvBkg.setImageResource(R.drawable.splash_spring);
-                mIvTitle.setImageResource(R.drawable.splash_spring_title);
-                break;
-            case DateUtils.SEASON_SUMMER:
-                mIvBkg.setImageResource(R.drawable.splash_summer);
-                mIvTitle.setImageResource(R.drawable.splash_summer_title);
-                break;
-            case DateUtils.SEASON_AUTUMN:
-                mIvBkg.setImageResource(R.drawable.splash_autum);
-                mIvTitle.setImageResource(R.drawable.splash_autum_title);
-                break;
-            case DateUtils.SEASON_WINTER:
-                mIvBkg.setImageResource(R.drawable.splash_winter);
-                mIvTitle.setImageResource(R.drawable.splash_winter_title);
-                break;
-        }
+//        switch (season) {
+//            case DateUtils.SEASON_SPRING:
+//                mIvBkg.setImageResource(R.drawable.splash_spring);
+//                mIvTitle.setImageResource(R.drawable.splash_spring_title);
+//                break;
+//            case DateUtils.SEASON_SUMMER:
+//                mIvBkg.setImageResource(R.drawable.splash_summer);
+//                mIvTitle.setImageResource(R.drawable.splash_summer_title);
+//                break;
+//            case DateUtils.SEASON_AUTUMN:
+//                mIvBkg.setImageResource(R.drawable.splash_autum);
+//                mIvTitle.setImageResource(R.drawable.splash_autum_title);
+//                break;
+//            case DateUtils.SEASON_WINTER:
+//                mIvBkg.setImageResource(R.drawable.splash_winter);
+//                mIvTitle.setImageResource(R.drawable.splash_winter_title);
+//                break;
+//        }
     }
 
     @Override

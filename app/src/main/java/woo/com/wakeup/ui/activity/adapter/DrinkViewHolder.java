@@ -15,7 +15,7 @@ import woo.com.wakeup.ui.widget.TextView;
  * Date: 2015-10-30
  * Time: 21:52
  */
-public class DrinkViewHolder extends RecyclerView.ViewHolder {
+public class DrinkViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public ImageView mImage, mImageUnselected;
     public TextView mDesc;
@@ -25,13 +25,11 @@ public class DrinkViewHolder extends RecyclerView.ViewHolder {
         mImage = (ImageView) itemView.findViewById(R.id.ivSelected);
         mImageUnselected = (ImageView) itemView.findViewById(R.id.ivUnselected);
         mDesc = (TextView) itemView.findViewById(R.id.tvDesc);
+        itemView.setOnClickListener(this);
     }
 
-    public class ImageClickListener implements View.OnClickListener {
+    @Override
+    public void onClick(View v) {
 
-        @Override
-        public void onClick(View view) {
-            //TODO::单击时的动画效果
-        }
     }
 }

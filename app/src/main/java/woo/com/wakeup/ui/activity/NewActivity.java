@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import woo.com.wakeup.R;
+import woo.com.wakeup.ui.fragment.DrinkFragment;
 import woo.com.wakeup.utils.FragmentUtils;
 
 /**
@@ -22,6 +23,6 @@ public class NewActivity extends Activity {
         setContentView(R.layout.activity_new);
         // 默认为HomepageFragment
         FragmentUtils.replace(this, R.id.main_container,
-                new DrinkOptionFragment());
+                new DrinkFragment());
     }
 }
