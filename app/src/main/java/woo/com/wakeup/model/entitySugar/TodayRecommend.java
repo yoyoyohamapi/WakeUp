@@ -21,6 +21,17 @@ public class TodayRecommend extends SugarRecord<TodayRecommend>
     private String name;
     private Date createdAt, updatedAt;
 
+    public TodayRecommend(){
+
+    }
+
+    public TodayRecommend(String artist, String coverUrl, String name) {
+        this.artist = artist;
+        this.coverUrl = coverUrl;
+        this.name = name;
+    }
+
+
     @Override
     public String getArtist() {
         return artist;

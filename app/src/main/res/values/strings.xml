@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WakeUp</string>
+    <string name="common_retry">重试</string>
+
+    <string name="drink_option_title">口干舌燥</string>
+    <string name="role_option_title">百鬼</string>
+
+    <string name="recommend_fail">获得“今日推荐”失败</string>
+    <string name="recommend_loading">获得“今日推荐”....</string>
+    <string name="complete_ok">达成</string>
 </resources>

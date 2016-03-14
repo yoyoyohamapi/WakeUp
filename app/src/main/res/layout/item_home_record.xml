@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context=".ui.activity.NewActivity">
+    android:gravity="center">
     <!-- 日期 -->
     <woo.com.wakeup.ui.widget.TextView
         android:id="@+id/tvRecordDate"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/abc_list_item_padding_horizontal_material"
+        android:padding="@dimen/distance_medium"
         android:gravity="center"
-        android:textSize="@dimen/abc_text_size_medium_material"
-        android:text="2015/10/20 10:10" />
+        android:textSize="@dimen/text_size_medium"
+        android:layout_weight="1"
+        />
     <!-- 饮品 -->
     <woo.com.wakeup.ui.widget.TextView
         android:id="@+id/tvRecordDrink"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/distance_small"
         android:gravity="center"
-        android:padding="@dimen/abc_list_item_padding_horizontal_material"
-        android:textSize="@dimen/abc_text_size_medium_material"
-        android:text="茶" />
-    <!-- 活动 -->
+        android:textSize="@dimen/text_size_medium"
+        android:layout_weight="1"
+        />
+    <!-- 角色 -->
     <woo.com.wakeup.ui.widget.TextView
-        android:id="@+id/tvRecordActivity"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvRecordRole"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/distance_small"
         android:gravity="center"
-        android:padding="@dimen/abc_list_item_padding_horizontal_material"
-        android:textSize="@dimen/abc_text_size_medium_material"
-        android:text="饿死鬼" />
+        android:textSize="@dimen/text_size_medium"
+        android:layout_weight="1"
+        />
 </LinearLayout>

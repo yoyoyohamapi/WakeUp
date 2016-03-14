@@ -47,7 +47,7 @@ public class SplashFragment extends BaseFragment
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_splash, container, false);
+        View view = inflater.inflate(R.layout.fragment_splash, container, true);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -70,24 +70,24 @@ public class SplashFragment extends BaseFragment
     @Override
     public void setSeason() {
         int season = DateUtils.getSeason(Calendar.getInstance());
-//        switch (season) {
-//            case DateUtils.SEASON_SPRING:
-//                mIvBkg.setImageResource(R.drawable.splash_spring);
-//                mIvTitle.setImageResource(R.drawable.splash_spring_title);
-//                break;
-//            case DateUtils.SEASON_SUMMER:
-//                mIvBkg.setImageResource(R.drawable.splash_summer);
-//                mIvTitle.setImageResource(R.drawable.splash_summer_title);
-//                break;
-//            case DateUtils.SEASON_AUTUMN:
-//                mIvBkg.setImageResource(R.drawable.splash_autum);
-//                mIvTitle.setImageResource(R.drawable.splash_autum_title);
-//                break;
-//            case DateUtils.SEASON_WINTER:
-//                mIvBkg.setImageResource(R.drawable.splash_winter);
-//                mIvTitle.setImageResource(R.drawable.splash_winter_title);
-//                break;
-//        }
+        switch (season) {
+            case DateUtils.SEASON_SPRING:
+                mIvBkg.setImageResource(R.drawable.splash_spring);
+                mIvTitle.setImageResource(R.drawable.splash_spring_title);
+                break;
+            case DateUtils.SEASON_SUMMER:
+                mIvBkg.setImageResource(R.drawable.splash_summer);
+                mIvTitle.setImageResource(R.drawable.splash_summer_title);
+                break;
+            case DateUtils.SEASON_AUTUMN:
+                mIvBkg.setImageResource(R.drawable.splash_autum);
+                mIvTitle.setImageResource(R.drawable.splash_autum_title);
+                break;
+            case DateUtils.SEASON_WINTER:
+                mIvBkg.setImageResource(R.drawable.splash_winter);
+                mIvTitle.setImageResource(R.drawable.splash_winter_title);
+                break;
+        }
     }
 
     @Override
@@ -116,6 +116,8 @@ public class SplashFragment extends BaseFragment
     public void deffer() {
         // 跳转到MainActivity
         IntentUtils.switchTo(getActivity(), MainActivity.class);
+        // 销毁启动Activity
+        this.getActivity().finish();
     }
 
     @Override

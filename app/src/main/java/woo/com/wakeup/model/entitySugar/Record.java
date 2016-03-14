@@ -20,7 +20,7 @@ public class Record extends SugarRecord<Record>
     private Date date;
     private Date createdAt, updatedAt;
     private int drink;
-    private int activity;
+    private int role;
 
     public Record() {
     }
@@ -77,14 +77,15 @@ public class Record extends SugarRecord<Record>
     }
 
     @Override
-    public int getActivity() {
-        return activity;
+    public int getRole() {
+        return this.role;
     }
 
     @Override
-    public void setActivity(int activity) {
-        this.activity = activity;
+    public void setRole(int role) {
+        this.role = role;
     }
+
 
     @Override
     public void save(final SaveCallback callback) {

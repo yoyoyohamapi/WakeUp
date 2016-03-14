@@ -12,6 +12,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 /**
  * NeteaseUtils
  * Desc: 网易API工具类
@@ -28,8 +29,8 @@ public class TodayRecommendUtils {
      *
      * @param context 上下文环境
      */
-    private static void getTodayRecommend(Context context, final TodayRecommendSuccessCallback successCallback,
-                                          final TodayRecommendFailCallback failCallback) {
+    public static void getTodayRecommend(Context context, final TodayRecommendSuccessCallback successCallback,
+                                         final TodayRecommendFailCallback failCallback) {
         final RequestQueue reqQueue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET, URL_TODAY_SONG, new Response.Listener<JSONObject>() {
 
@@ -48,6 +49,7 @@ public class TodayRecommendUtils {
                 }
 
             }
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -57,8 +59,8 @@ public class TodayRecommendUtils {
         });
 
         reqQueue.add(jsonReq);
-
-
     }
+
+
 
 }

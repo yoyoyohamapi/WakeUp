@@ -17,6 +17,6 @@ public class UITestActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_drink);
+        setContentView(R.layout.fragment_role);
     }
 }

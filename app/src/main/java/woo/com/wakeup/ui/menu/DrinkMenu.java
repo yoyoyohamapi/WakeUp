@@ -22,7 +22,7 @@ public final class DrinkMenu {
         DrinkItem water = new DrinkItem();
         water.setImage(R.drawable.drink_water);
         water.setImageUnselected(R.drawable.drink_water_unselected);
-        water.setDesc("这是清水");
+        water.setDesc("维持电解质平衡\n增强人体的免疫功能，提供机体的抗病能力\n矿物质和微量元素的含量适宜人体");
         water.setId(RecordDrink.WATER);
 
         items.add(water);
@@ -31,7 +31,7 @@ public final class DrinkMenu {
         DrinkItem tea = new DrinkItem();
         tea.setImage(R.drawable.drink_tea);
         tea.setImageUnselected(R.drawable.drink_tea_unselected);
-        tea.setDesc("这是差");
+        tea.setDesc("防暑降温、解乏明目\n兴奋中枢神经，增强运动能力\n抑制细胞突变，具抗癌作用\n保养肌肤，护肤美容");
         tea.setId(RecordDrink.TEA);
 
         items.add(tea);
@@ -40,7 +40,7 @@ public final class DrinkMenu {
         DrinkItem coffee = new DrinkItem();
         coffee.setImage(R.drawable.drink_coffee);
         coffee.setImageUnselected(R.drawable.drink_coffee_unselected);
-        coffee.setDesc("这是咖啡");
+        coffee.setDesc("活络消化器官，有助消化\n可防止放射线伤害\n消除疲劳，促进代谢");
         coffee.setId(RecordDrink.COFFEE);
 
         items.add(coffee);

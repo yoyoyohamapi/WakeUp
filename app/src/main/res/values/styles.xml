@@ -10,7 +10,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
-
         <!-- Animations -->
         <!-- specify shared element transitions -->
         <item name="android:windowSharedElementEnterTransition">
@@ -20,4 +19,12 @@
             @transition/change_image_transform
         </item>
     </style>
+
+    <!-- 选项顶部标题 -->
+    <style name="OptionTitle">
+        <item name="android:paddingTop">@dimen/distance_mini</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
 </resources>

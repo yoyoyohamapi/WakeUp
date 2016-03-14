@@ -33,7 +33,7 @@ public class StorageActivity extends Activity {
     @OnClick(R.id.btnSave)
     public void testSave() {
         Record record = new Record();
-        record.setActivity(2);
+        record.setRole(2);
         record.setDate(new Date());
         record.setCreatedAt(new Date());
         record.setUpdatedAt(new Date());

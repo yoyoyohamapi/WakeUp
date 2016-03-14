@@ -42,8 +42,10 @@
             android:id="@+id/tvDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textSize="32sp"
+            android:textAlignment="center"
+            android:padding="@dimen/distance_tiny"
+            android:textSize="@dimen/text_size_medium"
+            android:lineSpacingMultiplier="1.5"
             android:visibility="gone" />
 
     </LinearLayout>

@@ -1,6 +1,9 @@
 package woo.com.wakeup.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * DateUtils
@@ -110,5 +113,10 @@ public class DateUtils {
         if (now.after(c930) && now.before(c1000))
             return "心慵意懒";
         return "无可救药";
+    }
+
+    public static boolean isToday(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        return sdf.format(date).equals(sdf.format(new Date()));
     }
 }

@@ -8,4 +8,5 @@
     <color name="textColorPrimary">#35342C</color>
     <color name="textColorSecondary">#757261</color>
     <color name="colorDivider">#B6B6B6</color>
+    <color name="completeColr">#EE1111</color>
 </resources>

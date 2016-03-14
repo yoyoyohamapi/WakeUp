@@ -2,7 +2,12 @@ package woo.com.wakeup.ui.presenter;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import woo.com.wakeup.model.dao.IBaseDao;
+import woo.com.wakeup.model.dao.IRecordDao;
 import woo.com.wakeup.model.entity.IRecord;
+import woo.com.wakeup.ui.fragment.BaseFragment;
 
 /**
  * HomePresenter
@@ -16,9 +21,20 @@ public class HomePresenter implements Presenter {
 
     private View mView;
 
+    @Inject
+    IRecordDao mRecordDao;
+
     @Override
     public void initialize() {
-        //TODO:: presenter初始化时获取最近五天的早起记录
+        // 注入依赖
+        ((BaseFragment)mView).getAppComponent().inject(this);
+        // 获得最近早起记录
+        mRecordDao.findLatest(new IBaseDao.FindCallback<IRecord>() {
+            @Override
+            public void done(List<IRecord> results, Exception e) {
+                mView.showRecords(results);
+            }
+        });
     }
 
     @Override
@@ -49,5 +65,11 @@ public class HomePresenter implements Presenter {
         void showRecords(List<IRecord> records);
 
         void refreshStatus();
+
+        /**
+         * 显示添加按钮
+         */
+        void showBtnAdd();
+
     }
 }

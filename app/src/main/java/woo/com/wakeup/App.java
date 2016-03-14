@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.orm.SugarApp;
 
+import woo.com.wakeup.model.module.DaoModule;
+
 
 /**
  * App
@@ -33,6 +35,7 @@ public class App extends SugarApp {
         // 构建程序上下文时，需要先初始化AppComponent, 才能注入依赖
         mAppComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
+                .daoModule(new DaoModule())
                 .build();
 
         this.injectDependencies();

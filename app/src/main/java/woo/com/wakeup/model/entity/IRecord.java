@@ -10,9 +10,12 @@ import java.util.Date;
  * Date: 2015-10-22
  * Time: 14:43
  */
-// TODO: 15/10/22 记录接口设计
 public interface IRecord<C extends ITodayRecommend> extends IBase {
 
+    String KEY_DATE = "date";
+    String KEY_DRINK = "drink";
+    String KEY_ROLE = "role";
+    String KEY_TODAY_RECOMMEND = "todayRecommend";
     /**
      * 茶饮
      *
@@ -27,9 +30,9 @@ public interface IRecord<C extends ITodayRecommend> extends IBase {
      *
      * @return
      */
-    int getActivity();
+    int getRole();
 
-    void setActivity(int activity);
+    void setRole(int role);
 
     /**
      * 今日推荐

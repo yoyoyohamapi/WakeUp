@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <android.support.v7.widget.RecyclerView
+    <woo.com.wakeup.ui.widget.TextView
+        style="@style/OptionTitle"
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/drink_option_title"/>
+    <woo.com.wakeup.ui.widget.DrinkRecyclerView
         android:id="@+id/drinkList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:layout_below="@id/tvTitle"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/distance_mini"/>
 
-    </android.support.v7.widget.RecyclerView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/distance_small"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:src="@drawable/ic_arrow_back"
+        android:visibility="gone"
+        app:elevation="6dp"
+        app:borderWidth="0dp"
+        app:rippleColor="@color/colorPrimary"
+        />
+
 </RelativeLayout>
 

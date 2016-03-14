@@ -3,6 +3,8 @@ package woo.com.wakeup;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import woo.com.wakeup.model.module.DaoModule;
+import woo.com.wakeup.ui.presenter.HomePresenter;
 
 /**
  * AppComponent
@@ -13,7 +15,7 @@ import dagger.Component;
  */
 @Singleton
 @Component(
-        modules = AppModule.class
+        modules = {AppModule.class, DaoModule.class}
 )
 public interface AppComponent {
 
@@ -23,4 +25,10 @@ public interface AppComponent {
      * @param app 注入对象
      */
     void inject(App app);
+
+    /**
+     * DaoModule内的模块可注入Presenter的实现中
+     * @param presenter Presenter
+     */
+    void inject(HomePresenter presenter);
 }

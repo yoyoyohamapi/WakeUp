@@ -4,6 +4,8 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import woo.com.wakeup.App;
+import woo.com.wakeup.AppComponent;
 import woo.com.wakeup.ui.activity.component.HasComponent;
 
 /**
@@ -27,6 +29,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //在视图创建完成后进行初始化
         this.initialize();
     }
 
@@ -37,5 +40,9 @@ public abstract class BaseFragment extends Fragment {
     protected <C> C getComponent(Class<C> componentType) {
         return componentType.cast(((HasComponent<C>) getActivity())
                 .getComponent());
+    }
+
+    public AppComponent getAppComponent(){
+        return App.get(this.getActivity()).getAppComponent();
     }
 }

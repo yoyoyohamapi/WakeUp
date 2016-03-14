@@ -10,23 +10,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextClock;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import woo.com.wakeup.R;
 import woo.com.wakeup.model.entity.IRecord;
 import woo.com.wakeup.ui.activity.NewActivity;
+import woo.com.wakeup.ui.activity.adapter.RecordAdapter;
 import woo.com.wakeup.ui.activity.component.MainComponent;
 import woo.com.wakeup.ui.presenter.HomePresenter;
 import woo.com.wakeup.utils.DateUtils;
@@ -43,6 +41,8 @@ import woo.com.wakeup.utils.IntentUtils;
 public class HomeFragment extends BaseFragment implements HomePresenter.View {
 
     private static final int HANDLE_MSG_REFRESH_STATUS = 0;
+
+    private TextWatcher mTextWathcer;
     @Inject
     HomePresenter mPresenter;
 
@@ -60,6 +60,11 @@ public class HomeFragment extends BaseFragment implements HomePresenter.View {
 
     @Bind(R.id.viewRecords)
     LinearLayout mViewRecords;
+
+    @OnClick(R.id.btnAdd)
+    public void onAdd(){
+        this.switchToAdd();
+    }
 
 
     @Override
@@ -82,25 +87,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.View {
         this.getComponent(MainComponent.class).inject(this);
         mPresenter.setView(this);
         mPresenter.initialize();
-        // 初始化records
-        List<Map<String, String>> records = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            Map<String, String> map = new HashMap<>();
-            map.put("date", "2015/10/22");
-            map.put("drink", "咖啡");
-            map.put("activity", "饿死鬼");
-            records.add(map);
-        }
-        SimpleAdapter simpleAdapter = new SimpleAdapter(
-                this.getActivity(),
-                records,
-                R.layout.item_home_record,
-                new String[]{"date", "drink", "activity"},
-                new int[]{R.id.tvRecordDate, R.id.tvRecordDrink, R.id.tvRecordActivity}
-        );
-        mLvRecords.setAdapter(simpleAdapter);
-        // 设置TextBlock
-        mClock.addTextChangedListener(new TextWatcher() {
+        mTextWathcer = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -115,7 +102,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.View {
             public void afterTextChanged(Editable editable) {
                 refreshStatus();
             }
-        });
+        };
     }
 
     @Override
@@ -125,7 +112,20 @@ public class HomeFragment extends BaseFragment implements HomePresenter.View {
 
     @Override
     public void showRecords(List<IRecord> records) {
-
+        RecordAdapter mRecordAdapter = new RecordAdapter(records, this.getActivity().getLayoutInflater());
+        mLvRecords.setAdapter(mRecordAdapter);
+        //是否能够添加
+        if(!records.isEmpty()){
+            if(!DateUtils.isToday(records.get(0).getDate())){
+                this.showBtnAdd();
+            }else {
+                // 显示今日完成
+                mTvStatus.setTextColor(getResources().getColor(R.color.completeColr));
+                mTvStatus.setText("今日完成");
+            }
+        } else {
+            this.showBtnAdd();
+        }
     }
 
     @Override
@@ -135,6 +135,12 @@ public class HomeFragment extends BaseFragment implements HomePresenter.View {
         String status = DateUtils.getStatus(now);
         // 刷新UI显示
         mTvStatus.setText(status);
+    }
+
+    @Override
+    public void showBtnAdd() {
+        mBtnAdd.setVisibility(View.VISIBLE);
+        mClock.addTextChangedListener(mTextWathcer);
     }
 
     @Override
